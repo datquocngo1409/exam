@@ -5,8 +5,8 @@
     <title>Create new Staff</title>
 </head>
 <body>
-    <fieldset>
-        <legend>Create new Staff</legend>
+    <fieldset style="width: 50px">
+        <legend align="center">Create new Staff</legend>
         <button><a href="/staff">Back to list</a></button>
         <form th:action="@{/create-staff}" th:object="${staff}" th:method="post">
             <table>

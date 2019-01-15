@@ -5,8 +5,8 @@
     <title>Delete Staff</title>
 </head>
 <body>
-<fieldset>
-    <legend>Delete this Staff</legend>
+<fieldset style="width: 50px">
+    <legend align="center">Delete this Staff</legend>
     <button><a href="/staff">Back to list</a></button>
     <form th:action="@{/delete-staff}" th:object="${staff}" th:method="post">
         <table>

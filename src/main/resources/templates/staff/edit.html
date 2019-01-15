@@ -5,8 +5,8 @@
     <title>Edit Staff</title>
 </head>
 <body>
-<fieldset>
-    <legend>Edit this Staff</legend>
+<fieldset style="width: 50px">
+    <legend align="center">Edit this Staff</legend>
     <button><a href="/staff">Back to list</a></button>
     <form th:action="@{/edit-staff/__${staff.id}__}" th:object="${staff}" th:method="post">
         <table>

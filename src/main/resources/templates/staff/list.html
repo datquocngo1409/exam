@@ -5,12 +5,12 @@
     <title>Staff List</title>
 </head>
 <body>
-    <fieldset style="width: 1000px">
-        <legend>Staff List</legend>
+    <fieldset style="width: 50%">
+        <legend align="center">Staff List</legend>
         <button><a href="/create-staff">Create</a></button>
         <form>
-            <fieldset style="width: 300px">
-                <legend>Search</legend>
+            <fieldset th:marginwidth="300px" th:align="center" style="width: 300px">
+                <legend align="center">Search</legend>
                 <input type="text" name="s" th:value="${search}">
                 <input type="submit" th:value="Search">
             </fieldset>
