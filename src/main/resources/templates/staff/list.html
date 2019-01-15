@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Staff List</title>
+</head>
+<body>
+    <fieldset style="width: 1000px">
+        <legend>Staff List</legend>
+        <button><a href="/create-staff">Create</a></button>
+        <form>
+            <fieldset style="width: 300px">
+                <legend>Search</legend>
+                <input type="text" name="s" th:value="${search}">
+                <input type="submit" th:value="Search">
+            </fieldset>
+        </form>
+        <br> <br> <br>
+        <table border="1">
+            <tr>
+                <td>Staff ID</td>
+                <td>Name</td>
+                <td>Group</td>
+                <td>Birthday</td>
+                <td>Gender</td>
+                <td>Phone Number</td>
+                <td>CMND</td>
+                <td>Email</td>
+                <td>Address</td>
+                <td>Edit</td>
+                <td>Delete</td>
+            </tr>
+            <th:block th:each="s : ${staff}">
+                <tr>
+                    <td th:text="${s.id}"></td>
+                    <td th:text="${s.name}"></td>
+                    <td th:text="${s.group.name}"></td>
+                    <td th:text="${s.date}"></td>
+                    <td th:text="${s.gender}"></td>
+                    <td th:text="${s.phoneNumber}"></td>
+                    <td th:text="${s.cmndNumber}"></td>
+                    <td th:text="${s.email}"></td>
+                    <td th:text="${s.address}"></td>
+                    <td><a th:href="@{/edit-staff/__${s.id}__}">Edit</a></td>
+                    <td><a th:href="@{/delete-staff/__${s.id}__}">Delete</a></td>
+                </tr>
+            </th:block>
+        </table>
+    </fieldset>
+    <a th:href="@{'staff'(page=${staff.number - 1}, s=${search})}" th:if="${staff.hasPrevious()}">Previous</a>
+    <span th:text="${staff.number + 1}"></span>/<span th:text="${staff.totalPages}"></span>
+    <a th:href="@{'staff'(page=${staff.number + 1}, s=${search})}" th:if="${staff.hasNext()}">Next</a>
+</body>
+</html>
